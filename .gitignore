@@ -1,0 +1,13 @@
+﻿
+# Bỏ qua thư mục tạm của Visual Studio
+.vs/
+*.user
+*.suo
+*.db
+*.vsidx
+*.VC.db
+# Ignore build results
+bin/
+obj/
+.vs/
+*.vsidx

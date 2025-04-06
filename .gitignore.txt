@@ -1,0 +1,19 @@
+# Ignore system and config folders
+*.log
+*.tmp
+*.bak
+*.swp
+.DS_Store
+Thumbs.db
+
+# Anaconda and Python cache
+.anaconda/
+.conda/
+__pycache__/
+*.pyc
+
+# Android keys
+.android/
+
+# Dotnet SDK related
+.dotnet/

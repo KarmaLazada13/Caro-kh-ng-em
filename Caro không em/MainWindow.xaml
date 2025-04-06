@@ -1,0 +1,65 @@
+﻿<Window x:Class="CaroGame.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Cờ Caro" Height="700" Width="700"
+        ResizeMode="NoResize" WindowState="Normal">
+    <Grid>
+        <!-- Menu giống Minesweeper -->
+        <Menu VerticalAlignment="Top">
+            <MenuItem Header="Game">
+                <MenuItem Header="Tạm dừng" Click="PauseGame_Click"/>
+                <MenuItem Header="Chơi mới" Click="RestartGame_Click"/>
+                <MenuItem Header="Quay lại" Click="BackToGameMode_Click"/>
+
+            </MenuItem>
+            <MenuItem Header="Cài đặt">
+                <MenuItem Header="Bàn cờ 3x3" Click="SetSize_Click" Tag="3"/>
+                <MenuItem Header="Bàn cờ 10x10" Click="SetSize_Click" Tag="10"/>
+                <MenuItem Header="Bàn cờ 15x15" Click="SetSize_Click" Tag="15"/>
+                <MenuItem Header="Bàn cờ 20x20" Click="SetSize_Click" Tag="20"/>
+                <MenuItem Header="Bàn cờ 25x25" Click="SetSize_Click" Tag="25"/>
+                <MenuItem Header="Bàn cờ 30x30" Click="SetSize_Click" Tag="30"/>
+                <Separator/>
+
+                <MenuItem Header="Nhạc nền">
+                    <MenuItem Header="Thêm nhạc" Click="SelectMusic_Click"/>
+                    <MenuItem x:Name="ToggleMusicMenuItem" Header="Tắt nhạc" Click="ToggleMusic_Click"/>
+                    <MenuItem Header="List nhạc">
+                        <StackPanel Orientation="Horizontal">
+                            <ComboBox x:Name="MusicListComboBox" Width="150" SelectionChanged="MusicListComboBox_SelectionChanged"/>
+                            <Button Content="⏭" Click="NextMusic_Click" ToolTip="Chuyển bài" />
+                            <Button Content="🗑️" Click="DeleteSelectedMusic_Click" Width="30" Height="30" ToolTip="Xóa nhạc" />
+                        </StackPanel>
+                    </MenuItem>
+                </MenuItem>
+            </MenuItem>
+            <TextBox x:Name="winConditionTextBox" IsReadOnly="True" Text="5 quân thắng" Width="80" HorizontalAlignment="Left"/>
+            <TextBlock x:Name="ScoreXTextBox" Text="Player X: 0" Visibility="Collapsed" FontSize="16"/>
+            <TextBlock x:Name="ScoreOTextBox" Text="Player O: 0" Visibility="Collapsed" FontSize="16"/>
+        </Menu>
+        <TextBlock x:Name="TimerText"
+           HorizontalAlignment="Right"
+           VerticalAlignment="Top"
+           FontSize="16"
+           FontWeight="Bold"
+           Margin="0,5,20,0"
+           Foreground="Black"
+           Text="Time: 0s"/>
+        <TextBlock x:Name="ThinkingTimerText"
+           HorizontalAlignment="Center"
+           VerticalAlignment="Top"
+           Margin="250,5,0,0"  
+           FontSize="16"
+           FontWeight="Bold"
+           Foreground="DarkGreen"
+           Text="X: 15s"/>
+        <!-- Bàn cờ -->
+        <UniformGrid Name="BoardGrid" Rows="15" Columns="15" Margin="10,30,10,10"/>
+        <Image x:Name="PauseOverlay"
+       Source="C:\Users\ASUS-PC\Desktop\tải xuống (4).png"
+       Visibility="Collapsed"
+       Stretch="Fill"
+       Margin="10,30,10,10"
+       Panel.ZIndex="99"/>
+    </Grid>
+</Window>
